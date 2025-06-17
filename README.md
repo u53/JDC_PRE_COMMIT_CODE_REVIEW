@@ -1,35 +1,40 @@
-# JDC Code Review Assistant - IntelliJ IDEA 插件
+# JDC Pre-Commit Code Review - IntelliJ IDEA Plugin
 
-一个强大的IntelliJ IDEA插件，提供AI驱动的代码审查和分析功能。
+A professional IntelliJ IDEA plugin that automatically performs AI-driven code reviews before Git commits, helping developers improve code quality.
 
-## 功能特性
+🎉 **Now Available on JetBrains Plugin Marketplace!**
 
-### 🔍 **智能代码审查**
-- 使用AI技术对代码进行全面分析
-- 支持多种编程语言（Java、Kotlin、Python、JavaScript等）
-- 提供代码质量评分和详细分析报告
-- 识别潜在的安全漏洞、性能问题和代码风格问题
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![JetBrains Plugin](https://img.shields.io/badge/JetBrains-Plugin-orange.svg)](https://plugins.jetbrains.com/)
+[![Java](https://img.shields.io/badge/Java-8%2B-red.svg)](https://www.oracle.com/java/)
 
-### 🔗 **链式代码分析**
-- 自动追踪方法调用链和依赖关系
-- 分析代码架构和模块间的耦合度
-- 识别循环依赖和关键路径
-- 提供架构优化建议
+## ✨ Core Features
 
-### 💬 **交互式AI对话**
-- 支持与AI进行代码相关的问答
-- 可以针对特定代码片段进行深入讨论
-- 获得个性化的编程建议和最佳实践指导
+### 🔍 **Smart Code Review**
+- Multi-dimensional code quality analysis powered by Claude Sonnet 4
+- Supports multiple programming languages (Java, Kotlin, Python, JavaScript, TypeScript, etc.)
+- Provides 0-100 code quality scores with detailed improvement suggestions
+- Identifies potential security vulnerabilities, performance issues, and code style problems
 
-### ⚡ **流式输出**
-- 实时显示AI分析结果
-- 提升用户体验，无需等待完整分析完成
-- 支持中断和重新开始分析
+### 🎯 **Selective File Review**
+- Supports selective review with customizable file selection
+- Checkbox interface with select all/none operations
+- Intelligently filters non-code files, only reviews actual code files
 
-### 🔐 **安全认证**
-- 集成JDC Tools账号系统
-- 安全的令牌认证机制
-- 自动保存登录状态
+### 🔗 **Deep Git Integration**
+- Automatically detects Git staged files
+- Analyzes file changes and diff comparisons
+- Only reviews code files in the staging area
+
+### 🛡️ **Secure OAuth Authentication**
+- Browser-based secure login, no need to enter passwords in the plugin
+- Supports automatic re-authentication, auto-refresh when login status expires
+- Smart error handling and retry mechanisms
+
+### 🎨 **Modern Interface**
+- Beautiful interface compliant with IntelliJ design guidelines
+- Real-time display of analysis results
+- Professional file selection dialog
 
 ## 安装要求
 
@@ -84,149 +89,145 @@ gradle runIde
 4. 选择构建生成的插件文件（.zip格式）
 5. 重启IDE
 
-### 方法二：从插件市场安装（待发布）
+### 方法二：从插件市场安装（推荐）
 1. 打开IntelliJ IDEA
 2. 进入 `File` → `Settings` → `Plugins`
-3. 搜索 "JDC Code Review Assistant"
+3. 搜索 "JDC Pre-Commit Code Review"
 4. 点击安装并重启IDE
+
+**或者直接访问**: [JetBrains Plugin Marketplace](https://plugins.jetbrains.com/plugin/search?search=JDC%20Pre-Commit%20Code%20Review)
 
 ## 使用方法
 
-### 1. 登录账号
-- 首次使用时，插件会提示登录JDC Tools账号
-- 在工具窗口的登录页面输入用户名和密码
-- 登录成功后，凭据会安全保存，下次自动登录
+### 1. First Login
+- Click the "Login" button in the tool window, browser will automatically open the authorization page
+- Complete secure login in the browser without entering passwords in the plugin
+- Authentication credentials are securely saved for automatic login next time
 
-### 2. 分析单个文件
-- 右键点击文件，选择 `JDC Code Review` → `分析当前文件`
-- 或使用快捷键 `Ctrl+Shift+A`
-- 分析结果将显示在工具窗口中
+### 2. Review Staged Files
+- Use `git add` to add files to the staging area
+- In the plugin panel, check the files you want to review
+- Click "Review Selected Files" button to start AI code review
+- Or use keyboard shortcut `Ctrl+Shift+R`
 
-### 3. 分析选中代码
-- 在编辑器中选中要分析的代码
-- 右键选择 `JDC Code Review` → `分析选中代码`
-- 或使用快捷键 `Ctrl+Shift+S`
+### 3. Review Current File
+- Right-click on a file and select `Tools → JDC Pre-Commit Review → Review Current File`
+- Or use keyboard shortcut `Ctrl+Shift+F`
+- Analysis results will be displayed in the tool window
 
-### 4. 链式代码分析
-- 右键点击Java/Kotlin文件，选择 `JDC Code Review` → `链式分析`
-- 或使用快捷键 `Ctrl+Shift+C`
-- 插件会自动分析调用链和依赖关系
+### 4. Open Tool Window
+- Use keyboard shortcut `Ctrl+Shift+P` to open the review tool window
+- Or find "JDC Pre-Commit Review" in the right-side tool windows
 
-### 5. AI对话
-- 点击工具窗口的"AI对话"标签页
-- 输入问题并发送，与AI进行交互式对话
-- 或使用快捷键 `Ctrl+Shift+Q` 快速打开对话
+## Keyboard Shortcuts
 
-## 快捷键
+| Function | Windows/Linux | macOS |
+|----------|---------------|-------|
+| Review Staged Files | `Ctrl+Shift+R` | `Cmd+Shift+R` |
+| Review Current File | `Ctrl+Shift+F` | `Cmd+Shift+F` |
+| Open Tool Window | `Ctrl+Shift+P` | `Cmd+Shift+P` |
 
-| 功能 | Windows/Linux | macOS |
-|------|---------------|-------|
-| 分析当前文件 | `Ctrl+Shift+A` | `Cmd+Shift+A` |
-| 分析选中代码 | `Ctrl+Shift+S` | `Cmd+Shift+S` |
-| 链式分析 | `Ctrl+Shift+C` | `Cmd+Shift+C` |
-| 打开AI对话 | `Ctrl+Shift+Q` | `Cmd+Shift+Q` |
+## Configuration
 
-## 配置
+### Backend Server
+Default connection to `https://www.jdctools.com.cn/api`. Configuration can be modified in settings if needed.
 
-### 后端服务器地址
-默认连接到 `https://www.jdctools.com.cn/api`，如需修改可在设置中配置。
+### AI Model
+Plugin uses `claude-sonnet-4-20250514` model by default, which can be adjusted as needed.
 
-### AI模型选择
-插件默认使用 `claude-sonnet-4-20250514` 模型，可根据需要调整。
+## Development Guide
 
-## 开发说明
-
-### 项目结构
+### Project Structure
 ```
 intellij-plugin/
-├── build.gradle                              # Gradle构建文件
-├── gradle/                                   # Gradle Wrapper文件
-├── gradlew                                   # Gradle Wrapper脚本 (Unix)
-├── gradlew.bat                              # Gradle Wrapper脚本 (Windows)
-├── build.sh                                 # 构建脚本
+├── build.gradle                              # Gradle build file
+├── gradle/                                   # Gradle Wrapper files
+├── gradlew                                   # Gradle Wrapper script (Unix)
+├── gradlew.bat                              # Gradle Wrapper script (Windows)
 ├── src/main/
-│   ├── java/com/jdc/tools/codereview/
-│   │   ├── action/                           # Action类（菜单项和快捷键）
-│   │   │   ├── AnalyzeFileAction.java
-│   │   │   ├── AnalyzeSelectionAction.java
-│   │   │   ├── ChainAnalysisAction.java
-│   │   │   ├── OpenChatAction.java
+│   ├── java/com/jdc/tools/precommit/
+│   │   ├── action/                           # Action classes (menu items and shortcuts)
+│   │   │   ├── ReviewStagedFilesAction.java
+│   │   │   ├── ReviewCurrentFileAction.java
+│   │   │   ├── OpenToolWindowAction.java
 │   │   │   └── SettingsAction.java
-│   │   ├── model/                            # 数据模型
-│   │   │   ├── CodeReviewRequest.java
-│   │   │   └── CodeReviewResponse.java
-│   │   ├── service/                          # 服务层
-│   │   │   ├── ApiClient.java               # HTTP客户端
-│   │   │   ├── AuthService.java             # 认证服务
-│   │   │   └── CodeReviewService.java       # 代码审查服务
-│   │   ├── ui/                              # 用户界面组件
-│   │   │   ├── CodeReviewToolWindow.java
-│   │   │   └── CodeReviewToolWindowFactory.java
-│   │   └── util/                            # 工具类
+│   │   ├── service/                          # Service layer
+│   │   │   ├── ApiClient.java               # HTTP client
+│   │   │   ├── AuthService.java             # Authentication service
+│   │   │   ├── GitAnalysisService.java      # Git analysis service
+│   │   │   └── PreCommitReviewService.java  # Pre-commit review service
+│   │   ├── ui/                              # User interface components
+│   │   │   ├── PreCommitReviewToolWindow.java
+│   │   │   ├── FileSelectionDialog.java
+│   │   │   └── panels/                      # UI panels
+│   │   └── util/                            # Utility classes
+│   │       └── FileTypeFilter.java          # File type filtering
 │   └── resources/
 │       └── META-INF/
-│           └── plugin.xml                   # 插件配置文件
-└── build/                                   # Gradle构建输出目录
+│           └── plugin.xml                   # Plugin configuration file
+└── build/                                   # Gradle build output directory
 ```
 
-### Gradle命令说明
+### Gradle Commands
 
-#### 开发常用命令
+#### Common Development Commands
 ```bash
-# 清理项目
+# Clean project
 ./gradlew clean
 
-# 编译项目
+# Compile project
 ./gradlew compileJava
 
-# 运行测试
+# Run tests
 ./gradlew test
 
-# 构建插件
+# Build plugin
 ./gradlew buildPlugin
 
-# 运行IDE进行测试
+# Run IDE for testing
 ./gradlew runIde
 
-# 验证插件
+# Verify plugin
 ./gradlew verifyPlugin
 
-# 发布到本地
+# Publish to local
 ./gradlew publishToMavenLocal
 
-# 查看所有任务
+# View all tasks
 ./gradlew tasks
 ```
 
-#### 常用任务说明
-- `clean`: 清理构建目录
-- `compileJava`: 编译Java源代码
-- `buildPlugin`: 构建插件ZIP包
-- `runIde`: 启动带插件的IDE实例
-- `verifyPlugin`: 验证插件兼容性
+#### Task Descriptions
+- `clean`: Clean build directory
+- `compileJava`: Compile Java source code
+- `buildPlugin`: Build plugin ZIP package
+- `runIde`: Start IDE instance with plugin
+- `verifyPlugin`: Verify plugin compatibility
 
-### 主要组件
-- `ApiClient`: HTTP客户端，处理与后端的通信，支持SSE流式传输
-- `AuthService`: 认证服务，管理用户登录状态和凭据保存
-- `CodeReviewService`: 代码审查服务，核心业务逻辑
-- `CodeReviewToolWindow`: 主要的UI组件，包含登录、结果显示、对话功能
+### Main Components
+- `ApiClient`: HTTP client for backend communication with streaming support
+- `AuthService`: Authentication service for managing login state and credentials
+- `GitAnalysisService`: Git analysis service for staged file detection
+- `PreCommitReviewService`: Pre-commit review service with core business logic
+- `PreCommitReviewToolWindow`: Main UI component with login, results display, and file selection
+- `FileTypeFilter`: Intelligent file type filtering for code files
 
-### 扩展开发
-如需添加新功能：
-1. 在相应的包中创建新类
-2. 在 `plugin.xml` 中注册新的Action或服务
-3. 更新UI组件以支持新功能
-4. 在 `build.gradle` 中添加必要的依赖
+### Extension Development
+To add new features:
+1. Create new classes in appropriate packages
+2. Register new Actions or services in `plugin.xml`
+3. Update UI components to support new functionality
+4. Add necessary dependencies in `build.gradle`
 
-### 依赖管理
-项目使用Gradle管理依赖，主要依赖包括：
-- IntelliJ Platform SDK (由intellij插件自动提供)
-- Jackson (JSON处理)
-- Apache HttpClient (HTTP通信)
-- JUnit 5 (测试框架)
+### Dependency Management
+Project uses Gradle for dependency management, main dependencies include:
+- IntelliJ Platform SDK (automatically provided by intellij plugin)
+- Jackson (JSON processing)
+- Apache HttpClient (HTTP communication)
+- JUnit 5 (testing framework)
 
-#### 添加新依赖
-在 `build.gradle` 的 `dependencies` 块中添加：
+#### Adding New Dependencies
+Add to the `dependencies` block in `build.gradle`:
 ```gradle
 dependencies {
     implementation 'group:artifact:version'
@@ -234,35 +235,39 @@ dependencies {
 }
 ```
 
-## 故障排除
+## Troubleshooting
 
-### 常见问题
+### Common Issues
 
-**Q: 插件无法连接到服务器**
-A: 检查网络连接和服务器地址配置，确保能访问 `https://www.jdctools.com.cn`
+**Q: Plugin cannot connect to server**
+A: Check network connection and server address configuration, ensure access to `https://www.jdctools.com.cn`
 
-**Q: 登录失败**
-A: 确认用户名和密码正确，检查账号是否已激活
+**Q: Login failed**
+A: Confirm browser authorization is completed, check if account is activated
 
-**Q: 分析结果显示异常**
-A: 检查代码文件是否为空，网络是否稳定
+**Q: Analysis results display abnormally**
+A: Check if code files are empty, ensure network is stable
 
-**Q: 快捷键不生效**
-A: 检查是否与其他插件的快捷键冲突，可在设置中重新配置
+**Q: Keyboard shortcuts not working**
+A: Check for conflicts with other plugin shortcuts, can be reconfigured in settings
 
-### 日志查看
-在 `Help` → `Show Log in Explorer/Finder` 中查看详细的错误日志。
+**Q: No files to review**
+A: Use `git add` to stage files first, plugin only reviews staged files
 
-## 贡献
+### Log Viewing
+View detailed error logs in `Help` → `Show Log in Explorer/Finder`.
 
-欢迎提交Issue和Pull Request来改进这个插件！
+## Contributing
 
-## 许可证
+Welcome to submit Issues and Pull Requests to improve this plugin!
 
-本项目采用MIT许可证。
+## License
 
-## 联系我们
+This project is licensed under the Apache License 2.0.
 
-- 官网：https://www.jdctools.com.cn
-- 邮箱：support@jdctools.com
-- 技术支持：请在GitHub上提交Issue
+## Contact Us
+
+- Official Website: https://www.jdctools.com.cn
+- Email: jdctools@163.com
+- Technical Support: Please submit Issues on GitHub
+- Plugin Marketplace: [JDC Pre-Commit Code Review](https://plugins.jetbrains.com/plugin/search?search=JDC%20Pre-Commit%20Code%20Review)
