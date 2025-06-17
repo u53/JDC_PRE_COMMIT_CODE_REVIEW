@@ -1,0 +1,149 @@
+<idea-plugin>
+    <id>com.jdc.tools.pre-commit-review</id>
+    <name>JDC Pre-Commit Code Review</name>
+    <vendor email="support@jdctools.com" url="https://www.jdctools.com.cn">JDC Tools</vendor>
+    <version>1.0.0</version>
+
+    <!-- 版本兼容性 -->
+    <idea-version since-build="223"/>
+
+    <description><![CDATA[
+    <h2>🚀 JDC Git提交前代码审查</h2>
+    <p>一个专业的IntelliJ IDEA插件，在Git提交前自动进行AI驱动的代码审查，帮助开发者提升代码质量。</p>
+
+    <h3>✨ 核心功能：</h3>
+    <ul>
+        <li><strong>🔍 智能代码审查</strong> - 基于Claude Sonnet 4的多维度代码质量分析</li>
+        <li><strong>📊 质量评分</strong> - 提供0-100分的代码质量评分和详细改进建议</li>
+        <li><strong>🎯 文件选择</strong> - 支持选择性审查，可自由选择要审查的文件</li>
+        <li><strong>🔗 Git深度集成</strong> - 自动检测暂存文件、变动内容和差异对比</li>
+        <li><strong>⚡ 实时流式反馈</strong> - 流式输出分析结果，无需等待</li>
+        <li><strong>🛡️ 安全OAuth认证</strong> - 通过浏览器安全登录，支持自动重新认证</li>
+        <li><strong>🎨 现代化界面</strong> - 符合IntelliJ设计规范的美观界面</li>
+        <li><strong>📝 多语言支持</strong> - 支持Java、Kotlin、Python、JavaScript、TypeScript等</li>
+        <li><strong>📈 审查历史</strong> - 完整的代码审查记录和历史管理</li>
+        <li><strong>🔄 智能重试</strong> - 网络异常时自动重试，认证失败时自动重新登录</li>
+        <li><strong>📁 智能过滤</strong> - 自动过滤非代码文件，只审查真正的代码文件</li>
+    </ul>
+
+    <h3>🎯 快速开始：</h3>
+    <ol>
+        <li><strong>🔐 首次登录</strong>：点击工具窗口中的"登录"按钮，浏览器会自动打开 <a href="https://www.jdctools.com.cn/plugin-auth">JDC Tools授权页面</a> 进行安全授权</li>
+        <li><strong>✏️ 修改代码</strong>：在项目中进行代码修改</li>
+        <li><strong>📁 暂存文件</strong>：使用 <code>git add</code> 添加文件到暂存区</li>
+        <li><strong>🔍 选择文件</strong>：点击"审查暂存文件"，在弹出的对话框中选择要审查的文件</li>
+        <li><strong>⚡ 开始审查</strong>：确认选择后开始AI代码审查</li>
+        <li><strong>📊 查看结果</strong>：在工具窗口中实时查看分析结果和改进建议</li>
+        <li><strong>🛠️ 优化代码</strong>：根据AI建议优化代码后再提交</li>
+    </ol>
+
+    <h3>⌨️ 快捷键：</h3>
+    <ul>
+        <li><code>Ctrl+Shift+R</code> - 审查暂存文件</li>
+        <li><code>Ctrl+Shift+F</code> - 审查当前文件</li>
+        <li><code>Ctrl+Shift+P</code> - 打开审查工具窗口</li>
+    </ul>
+
+    <h3>🔑 授权流程：</h3>
+    <p>插件采用安全的OAuth2授权流程：</p>
+    <ul>
+        <li>🌐 自动打开浏览器到 <a href="https://www.jdctools.com.cn/plugin-auth">官方授权页面</a></li>
+        <li>🔐 在网页中安全登录您的JDC Tools账号</li>
+        <li>✅ 确认授权后自动返回插件，无需手动操作</li>
+        <li>🔄 支持自动重新认证，登录状态过期时自动刷新</li>
+    </ul>
+
+    <h3>🌟 高级特性：</h3>
+    <ul>
+        <li><strong>📂 文件选择器</strong> - 美观的文件选择界面，支持全选/全不选</li>
+        <li><strong>🔄 智能重试机制</strong> - 网络异常自动重试，认证失败自动重新登录</li>
+        <li><strong>📊 详细统计</strong> - 显示文件大小、类型、处理时间等详细信息</li>
+        <li><strong>🎨 语法高亮</strong> - 代码建议支持语法高亮显示</li>
+        <li><strong>💾 本地缓存</strong> - 智能缓存认证信息，减少重复登录</li>
+        <li><strong>🔍 智能过滤</strong> - 自动过滤.bin、.lock等非代码文件，支持100+种编程语言</li>
+    </ul>
+
+    <h3>📋 开源信息：</h3>
+    <ul>
+        <li><strong>📄 许可证</strong>：Apache License 2.0</li>
+        <li><strong>💻 源代码</strong>：<a href="https://github.com/u53/JDC_PRE_COMMIT_CODE_REVIEW">GitHub Repository</a></li>
+        <li><strong>🐛 问题反馈</strong>：<a href="https://github.com/u53/JDC_PRE_COMMIT_CODE_REVIEW/issues">GitHub Issues</a></li>
+    </ul>
+
+    <p><strong>🌐 官方网站：</strong> <a href="https://www.jdctools.com.cn">https://www.jdctools.com.cn</a></p>
+    <p><strong>📖 使用指南：</strong> <a href="https://www.jdctools.com.cn/docs/intellij-plugin">详细使用教程</a></p>
+    <p><strong>🆘 技术支持：</strong> 如有问题请访问官网联系客服</p>
+    ]]></description>
+
+    <!-- Product and plugin compatibility requirements -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>Git4Idea</depends>
+
+    <!-- Extension points defined by the plugin -->
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Tool Window -->
+        <toolWindow id="JDC Pre-Commit Review"
+                   secondary="true"
+                   anchor="bottom"
+                   factoryClass="com.jdc.tools.precommit.ui.PreCommitReviewToolWindowFactory"/>
+
+        <!-- Application Service -->
+        <applicationService serviceImplementation="com.jdc.tools.precommit.service.GitAnalysisService"/>
+        <applicationService serviceImplementation="com.jdc.tools.precommit.service.AuthService"/>
+        <applicationService serviceImplementation="com.jdc.tools.precommit.service.OAuthService"/>
+        <applicationService serviceImplementation="com.jdc.tools.precommit.service.ApiClient"/>
+        <applicationService serviceImplementation="com.jdc.tools.precommit.service.PreCommitReviewService"/>
+
+        <!-- Project Service -->
+        <projectService serviceImplementation="com.jdc.tools.precommit.service.ProjectGitService"/>
+
+        <!-- Notification Group -->
+        <notificationGroup id="JDC Pre-Commit Review"
+                          displayType="BALLOON"
+                          key="notification.group.precommit"/>
+    </extensions>
+
+    <actions>
+        <!-- Git Pre-Commit Review Actions -->
+        <group id="JDCPreCommitReview" text="JDC Pre-Commit Review" description="JDC Git提交前代码审查">
+            <add-to-group group-id="VcsGroups" anchor="last"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+
+            <action id="JDCPreCommitReview.ReviewStagedFiles"
+                   class="com.jdc.tools.precommit.action.ReviewStagedFilesAction"
+                   text="🔍 审查暂存文件"
+                   description="选择并审查Git暂存区中的文件，支持自定义选择要审查的文件">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift R"/>
+            </action>
+
+            <action id="JDCPreCommitReview.ReviewCurrentFile"
+                   class="com.jdc.tools.precommit.action.ReviewCurrentFileAction"
+                   text="📄 审查当前文件"
+                   description="审查当前编辑器中打开的文件变动">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift F"/>
+            </action>
+
+            <action id="JDCPreCommitReview.OpenToolWindow"
+                   class="com.jdc.tools.precommit.action.OpenToolWindowAction"
+                   text="🚀 打开审查窗口"
+                   description="打开JDC Git提交前代码审查工具窗口">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift P"/>
+            </action>
+        </group>
+
+        <!-- Main Menu -->
+        <group id="JDCPreCommitReviewMainMenu" text="JDC Pre-Commit Review" description="JDC Git提交前代码审查">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <reference ref="JDCPreCommitReview.ReviewStagedFiles"/>
+            <reference ref="JDCPreCommitReview.ReviewCurrentFile"/>
+            <reference ref="JDCPreCommitReview.OpenToolWindow"/>
+            <separator/>
+            <action id="JDCPreCommitReview.Settings"
+                   class="com.jdc.tools.precommit.action.SettingsAction"
+                   text="⚙️ 插件设置"
+                   description="配置JDC Pre-Commit Review插件设置和偏好"/>
+        </group>
+    </actions>
+</idea-plugin>

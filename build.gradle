@@ -1,0 +1,82 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '1.17.2'
+}
+
+group = 'com.jdc.tools'
+version = '1.0.0'
+
+// 设置专业的JAR文件名
+jar {
+    archiveBaseName = 'jdc-precommit-review-intellij-plugin'
+    archiveVersion = version
+    archiveClassifier = ''
+}
+
+repositories {
+    mavenCentral()
+}
+
+// Configure Gradle IntelliJ Plugin
+intellij {
+    version = '2023.3.8'
+    type = 'IC' // Target IDE Platform
+
+    plugins = ['com.intellij.java', 'Git4Idea']
+}
+
+dependencies {
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.15.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.2'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.14'
+    implementation 'org.apache.httpcomponents:httpcore:4.4.16'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+}
+
+// Set the JVM compatibility versions
+tasks.withType(JavaCompile) {
+    sourceCompatibility = "17"
+    targetCompatibility = "17"
+    options.encoding = 'UTF-8'
+}
+
+patchPluginXml {
+    sinceBuild = '223'
+    untilBuild = ''
+    // 移除untilBuild限制，支持所有未来版本
+
+    changeNotes = """
+    <h3>1.0.0</h3>
+    <ul>
+        <li>🎉 初始版本发布</li>
+        <li>🔍 智能AI代码审查功能</li>
+        <li>📊 代码质量评分和详细分析</li>
+        <li>🔗 Git暂存文件自动检测</li>
+        <li>⚡ 实时流式输出分析结果</li>
+        <li>🛡️ 安全的OAuth2浏览器授权登录</li>
+        <li>🎨 符合IntelliJ设计规范的现代界面</li>
+        <li>📝 支持多种编程语言</li>
+        <li>📈 完整的审查历史记录</li>
+        <li>🚀 无版本上限，支持所有未来IntelliJ版本</li>
+    </ul>
+    """
+}
+
+test {
+    useJUnitPlatform()
+}
+
+// 配置插件分发包文件名
+buildPlugin {
+    archiveBaseName = 'JDC-PreCommit-Review-IntelliJ-Plugin'
+    archiveVersion = version
+    archiveClassifier = ''
+}
+
+// Configure Gradle IntelliJ Plugin
+runIde {
+    jvmArgs = ['-Xmx2048m']
+}
